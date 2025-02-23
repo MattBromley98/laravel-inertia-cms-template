@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c8134126be36f371e95d59bd81d6c311",
+    "content-hash": "509257d7cd6fcb6b314e7a4a6e76e1a3",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -2665,16 +2665,16 @@
         },
         {
             "name": "mattbromley/inertia-statamic",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MattBromley98/inertia-statamic.git",
-                "reference": "3055970e08bd0a87ad22ea081c72580708769d4a"
+                "reference": "a8e4ffc8a9c487c6fcac57391c4daa0ccc38d06f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MattBromley98/inertia-statamic/zipball/3055970e08bd0a87ad22ea081c72580708769d4a",
-                "reference": "3055970e08bd0a87ad22ea081c72580708769d4a",
+                "url": "https://api.github.com/repos/MattBromley98/inertia-statamic/zipball/a8e4ffc8a9c487c6fcac57391c4daa0ccc38d06f",
+                "reference": "a8e4ffc8a9c487c6fcac57391c4daa0ccc38d06f",
                 "shasum": ""
             },
             "require": {
@@ -2724,9 +2724,9 @@
                 "statamic"
             ],
             "support": {
-                "source": "https://github.com/MattBromley98/inertia-statamic/tree/v1.0.0"
+                "source": "https://github.com/MattBromley98/inertia-statamic/tree/v1.1.0"
             },
-            "time": "2025-02-23T17:00:54+00:00"
+            "time": "2025-02-23T21:53:40+00:00"
         },
         {
             "name": "michelf/php-smartypants",

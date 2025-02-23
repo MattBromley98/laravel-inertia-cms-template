@@ -1,0 +1,16 @@
+{
+  "node_modules/@inertiajs/svelte/dist/components/App.svelte": [],
+  "node_modules/@inertiajs/svelte/dist/components/Render.svelte": [],
+  "node_modules/@inertiajs/svelte/dist/createInertiaApp.js": [],
+  "node_modules/svelte/src/constants.js": [],
+  "node_modules/svelte/src/internal/server/context.js": [],
+  "node_modules/svelte/src/internal/server/hydration.js": [],
+  "node_modules/svelte/src/internal/server/index.js": [],
+  "node_modules/svelte/src/internal/shared/utils.js": [],
+  "resources/components/Blocks/Headline/Component.svelte": [
+    "/build/assets/Component-Cb1aQ900.js"
+  ],
+  "resources/components/PageBuilder.svelte": [],
+  "resources/js/Pages/Index.svelte": [],
+  "resources/js/ssr.js": []
+}

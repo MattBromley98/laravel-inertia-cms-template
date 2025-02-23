@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->web(append: [
             HandleInertiaRequests::class,
+            \Hotmeteor\Inertia\InertiaStatamic::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

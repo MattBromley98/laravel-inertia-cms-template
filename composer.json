@@ -1,5 +1,4 @@
 {
-    "$schema": "https://getcomposer.org/schema.json",
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
@@ -10,7 +9,7 @@
         "inertiajs/inertia-laravel": "^2.0",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
-        "mattbromley/inertia-statamic": "^1.0",
+        "mattbromley/inertia-statamic": "^1.1.0",
         "statamic/cms": "^5.48"
     },
     "require-dev": {

@@ -9,6 +9,7 @@
         "php": "^8.2",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
+        "mattbromley/inertia-statamic": "^1.0",
         "statamic/cms": "^5.48"
     },
     "require-dev": {

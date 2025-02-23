@@ -1,0 +1,12 @@
+title: SEO
+fields:
+  -
+    handle: page_title
+    field:
+      type: text
+      display: 'Page Title'
+  -
+    handle: meta_description
+    field:
+      type: textarea
+      display: 'Meta Description'

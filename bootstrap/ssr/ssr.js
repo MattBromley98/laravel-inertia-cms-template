@@ -101,29 +101,34 @@ function ensure_array_like(array_like_or_iterator) {
   }
   return [];
 }
+function Component($$payload) {
+  console.log("INIT");
+  let innerWidth;
+  console.log(innerWidth);
+  $$payload.out += `<div class="w-full">sdsdd</div>`;
+}
+const __vite_glob_0_0$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: Component
+}, Symbol.toStringTag, { value: "Module" }));
 function PageBuilder($$payload, $$props) {
-  var _a;
+  var _a, _b;
   push();
   let data = fallback($$props["data"], () => [], true);
-  Promise.resolve(new Promise(async () => {
-    await import("./assets/Component-Cb1aQ900.js");
-  }));
-  const each_array = ensure_array_like(data);
-  $$payload.out += `<!--[-->`;
-  for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
-    let component = each_array[$$index];
-    $$payload.out += `<!---->`;
-    (_a = component == null ? void 0 : component.default) == null ? void 0 : _a.call(component, $$payload, {});
-    $$payload.out += `<!---->`;
+  let component;
+  switch ((_a = data[0]) == null ? void 0 : _a.type) {
+    case "headline":
+      component = Object.assign({ "./Blocks/Headline/Component.svelte": __vite_glob_0_0$1 })["./Blocks/Headline/Component.svelte"];
   }
-  $$payload.out += `<!--]-->`;
+  $$payload.out += `<!---->`;
+  (_b = component == null ? void 0 : component.default) == null ? void 0 : _b.call(component, $$payload, {});
+  $$payload.out += `<!---->`;
   bind_props($$props, { data });
   pop();
 }
 function Index($$payload, $$props) {
   push();
   let data = $$props["data"];
-  console.log(data);
   PageBuilder($$payload, { data: data == null ? void 0 : data.body });
   bind_props($$props, { data });
   pop();
@@ -266,9 +271,7 @@ createServer(
     return createInertiaApp({
       page,
       resolve: (name) => {
-        var _a;
         const pages = /* @__PURE__ */ Object.assign({ "./Pages/Index.svelte": __vite_glob_0_0 });
-        console.log((_a = pages[`./Pages/${name}.svelte`]) == null ? void 0 : _a.default);
         return pages[`./Pages/${name}.svelte`];
       },
       setup({ App: App2, props }) {

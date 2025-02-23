@@ -1,11 +1,11 @@
-<script async>
+<script>
     export let data = [];
+    let component;
 
-    const test = await import("./Blocks/Headline/Component.svelte");
+    switch (data[0]?.type) {
+        case 'headline':
+            component = import.meta.glob('./Blocks/Headline/Component.svelte', {eager: true})['./Blocks/Headline/Component.svelte']
+    }
 </script>
 
-<!--{#each data as component}-->
-    <!--{#await importComponent(component?.type) then componentBlock}-->
-        <svelte:component this={test?.default}/>
-    <!--{/await}-->
-<!--{/each}-->
+<svelte:component this={component?.default}/>

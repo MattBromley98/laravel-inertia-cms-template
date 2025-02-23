@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import {svelte} from "@sveltejs/vite-plugin-svelte"
+import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 
 export default defineConfig({
     plugins: [
@@ -15,6 +16,13 @@ export default defineConfig({
             },
         }),
     ],
+    // build: {
+    //     rollupOptions: {
+    //         output: {
+    //             format: 'cjs',
+    //         }
+    //     }
+    // },
     esbuild: {
         supported: {
             'top-level-await': true

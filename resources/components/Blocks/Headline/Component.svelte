@@ -3,5 +3,5 @@
 </script>
 
 <div class="w-full">
-    sdsdd
+    Test Component
 </div>

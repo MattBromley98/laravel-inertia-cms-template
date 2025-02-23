@@ -1,0 +1,22 @@
+title: Headline
+fields:
+  -
+    handle: primary_text
+    field:
+      type: text
+      display: 'Primary Text'
+  -
+    handle: secondary_text
+    field:
+      type: text
+      display: 'Secondary Text'
+  -
+    handle: primary_colour
+    field:
+      type: color
+      display: 'Primary Colour'
+  -
+    handle: secondary_colour
+    field:
+      type: color
+      display: 'Secondary Colour'

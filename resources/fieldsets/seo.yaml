@@ -10,3 +10,15 @@ fields:
     field:
       type: textarea
       display: 'Meta Description'
+  -
+    handle: og_image
+    field:
+      max_files: 1
+      container: images
+      type: assets
+      display: 'OG Image'
+  -
+    handle: noindex_no_follow
+    field:
+      type: checkboxes
+      display: 'NoIndex, No Follow'

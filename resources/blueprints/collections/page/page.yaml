@@ -1,0 +1,48 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Content
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: body
+            field:
+              type: replicator
+              display: Body
+              sets:
+                helpers:
+                  display: Helpers
+                  sets:
+                    seo:
+                      display: SEO
+                      fields:
+                        -
+                          import: seo
+                blocks:
+                  display: Blocks
+                  sets:
+                    headline:
+                      display: Headline
+                      fields:
+                        -
+                          import: headline
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+title: Page

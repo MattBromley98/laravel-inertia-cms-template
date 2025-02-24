@@ -3,14 +3,25 @@
   "node_modules/@inertiajs/svelte/dist/components/Render.svelte": [],
   "node_modules/@inertiajs/svelte/dist/createInertiaApp.js": [],
   "node_modules/svelte/src/constants.js": [],
+  "node_modules/svelte/src/escaping.js": [
+    "/build/assets/Component-CpGupaJ7.js"
+  ],
   "node_modules/svelte/src/internal/server/context.js": [],
   "node_modules/svelte/src/internal/server/hydration.js": [],
   "node_modules/svelte/src/internal/server/index.js": [],
-  "node_modules/svelte/src/internal/shared/utils.js": [],
-  "resources/components/Blocks/Headline/Component.svelte": [
-    "/build/assets/Component-C51N5zZs.js"
+  "node_modules/svelte/src/internal/shared/attributes.js": [
+    "/build/assets/Component-CpGupaJ7.js"
   ],
-  "resources/components/PageBuilder.svelte": [],
-  "resources/js/Pages/Index.svelte": [],
+  "node_modules/svelte/src/internal/shared/utils.js": [],
+  "resources/js/Components/Blocks/Headline/Component.svelte": [
+    "/build/assets/Component-CpGupaJ7.js"
+  ],
+  "resources/js/Components/Blocks/PageBuilder/PageBuilder.svelte": [],
+  "resources/js/Components/Blocks/PageBuilder/PageBuilderItem.svelte": [],
+  "resources/js/Components/Blocks/TextAndImage/Component.svelte": [
+    "/build/assets/Component-O05Vh_VI.js"
+  ],
+  "resources/js/Layouts/MainLayout.svelte": [],
+  "resources/js/Templates/Page.svelte": [],
   "resources/js/ssr.js": []
 }

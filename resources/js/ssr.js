@@ -7,8 +7,8 @@ createServer(page => {
             page,
             title: title => `${title}`,
             resolve: name => {
-                const pages = import.meta.glob('./Pages/**/*.svelte', {eager: true})
-                return pages[`./Pages/${name}.svelte`]
+                const pages = import.meta.glob('./Templates/**/*.svelte', {eager: true})
+                return pages[`./Templates/${name}.svelte`]
             },
             setup({ App, props }) {
                 return render(App, { props })

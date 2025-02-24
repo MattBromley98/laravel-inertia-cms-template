@@ -1,0 +1,30 @@
+title: TextAndImage
+fields:
+  -
+    handle: image
+    field:
+      container: images
+      type: assets
+      display: Image
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: content
+    field:
+      type: textarea
+      display: Content
+  -
+    handle: alignment
+    field:
+      options:
+        -
+          key: left
+          value: 'Left Align Image'
+        -
+          key: right
+          value: 'Right Align Image'
+      type: radio
+      display: Alignment

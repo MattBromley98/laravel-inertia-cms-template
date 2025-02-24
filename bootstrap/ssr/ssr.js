@@ -90,6 +90,19 @@ function spread_props(props) {
   }
   return merged_props;
 }
+function stringify(value) {
+  return typeof value === "string" ? value : value == null ? "" : value + "";
+}
+function slot(payload, $$props, name, slot_props, fallback_fn) {
+  var _a;
+  var slot_fn = (_a = $$props.$$slots) == null ? void 0 : _a[name];
+  if (slot_fn === true) {
+    slot_fn = $$props["children"];
+  }
+  if (slot_fn !== void 0) {
+    slot_fn(payload, slot_props);
+  }
+}
 function bind_props(props_parent, props_now) {
   var _a;
   for (const key in props_now) {
@@ -113,27 +126,33 @@ function ensure_array_like(array_like_or_iterator) {
   }
   return [];
 }
-let component;
-const loadComponent = async () => {
-  component = await /* @__PURE__ */ Object.assign({ "./Blocks/Headline/Component.svelte": () => import("./assets/Component-C51N5zZs.js") })["./Blocks/Headline/Component.svelte"]();
+let component = {};
+const loadComponents = async () => {
+  if (typeof window !== "undefined") {
+    return;
+  }
+  component["headline"] = await /* @__PURE__ */ Object.assign({ "../Headline/Component.svelte": () => import("./assets/Component-CpGupaJ7.js") })["../Headline/Component.svelte"]();
+  component["text_and_image"] = await /* @__PURE__ */ Object.assign({ "../TextAndImage/Component.svelte": () => import("./assets/Component-O05Vh_VI.js") })["../TextAndImage/Component.svelte"]();
 };
-loadComponent();
-function PageBuilder($$payload, $$props) {
-  var _a;
+loadComponents();
+function PageBuilderItem($$payload, $$props) {
+  var _a, _b;
   push();
-  const loadComponent2 = async () => {
-    if (component == null ? void 0 : component.default) {
-      return;
+  let data = fallback($$props["data"], () => ({ type: "headline" }), true);
+  const importComponents = async () => {
+    switch (data == null ? void 0 : data.type) {
+      case "headline":
+        return await import("./assets/Component-CpGupaJ7.js");
+      case "text_and_image":
+        return await import("./assets/Component-O05Vh_VI.js");
     }
-    component = await /* @__PURE__ */ Object.assign({ "./Blocks/Headline/Component.svelte": () => import("./assets/Component-C51N5zZs.js") })["./Blocks/Headline/Component.svelte"]();
   };
-  loadComponent2();
   if (typeof window === "undefined") {
     $$payload.out += "<!--[-->";
-    if (component == null ? void 0 : component.default) {
+    if (component[data == null ? void 0 : data.type]) {
       $$payload.out += "<!--[-->";
       $$payload.out += `<!---->`;
-      (_a = component == null ? void 0 : component.default) == null ? void 0 : _a.call(component, $$payload, {});
+      (_b = (_a = component[data == null ? void 0 : data.type]) == null ? void 0 : _a.default) == null ? void 0 : _b.call(_a, $$payload, { data });
       $$payload.out += `<!---->`;
     } else {
       $$payload.out += "<!--[!-->";
@@ -143,31 +162,54 @@ function PageBuilder($$payload, $$props) {
     $$payload.out += "<!--[!-->";
     $$payload.out += `<!---->`;
     await_block(
-      import("./assets/Component-C51N5zZs.js"),
+      importComponents(),
       () => {
       },
       (component2) => {
         var _a2;
         $$payload.out += `<!---->`;
-        (_a2 = component2 == null ? void 0 : component2.default) == null ? void 0 : _a2.call(component2, $$payload, {});
+        (_a2 = component2 == null ? void 0 : component2.default) == null ? void 0 : _a2.call(component2, $$payload, { data });
         $$payload.out += `<!---->`;
       }
     );
     $$payload.out += `<!---->`;
   }
   $$payload.out += `<!--]-->`;
+  bind_props($$props, { data });
   pop();
 }
-function Index($$payload, $$props) {
+function PageBuilder($$payload, $$props) {
+  let data = fallback($$props["data"], () => [], true);
+  const each_array = ensure_array_like(data);
+  $$payload.out += `<!--[-->`;
+  for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+    let component2 = each_array[$$index];
+    PageBuilderItem($$payload, { data: component2 });
+  }
+  $$payload.out += `<!--]-->`;
+  bind_props($$props, { data });
+}
+function MainLayout($$payload, $$props) {
+  $$payload.out += `<!----> `;
+  $$payload.out += `<!----> <div><!---->`;
+  slot($$payload, $$props, "default", {});
+  $$payload.out += `<!----></div>`;
+}
+function Page($$payload, $$props) {
   push();
   let data = $$props["data"];
-  PageBuilder($$payload, { data: data == null ? void 0 : data.body });
+  MainLayout($$payload, {
+    children: ($$payload2) => {
+      PageBuilder($$payload2, { data: data == null ? void 0 : data.body });
+    },
+    $$slots: { default: true }
+  });
   bind_props($$props, { data });
   pop();
 }
 const __vite_glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Index
+  default: Page
 }, Symbol.toStringTag, { value: "Module" }));
 const h = (component2, propsOrChildren, childrenOrKey, key = null) => {
   const hasProps = typeof propsOrChildren === "object" && propsOrChildren !== null && !Array.isArray(propsOrChildren);
@@ -303,8 +345,8 @@ createServer(
     return createInertiaApp({
       page,
       resolve: (name) => {
-        const pages = /* @__PURE__ */ Object.assign({ "./Pages/Index.svelte": __vite_glob_0_0 });
-        return pages[`./Pages/${name}.svelte`];
+        const pages = /* @__PURE__ */ Object.assign({ "./Templates/Page.svelte": __vite_glob_0_0 });
+        return pages[`./Templates/${name}.svelte`];
       },
       setup({ App: App2, props }) {
         return render(App2, { props });
@@ -312,3 +354,10 @@ createServer(
     });
   }
 );
+export {
+  push as a,
+  bind_props as b,
+  fallback as f,
+  pop as p,
+  stringify as s
+};

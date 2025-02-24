@@ -1,0 +1,73 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: 'Organisation Information'
+        fields:
+          -
+            handle: name
+            field:
+              type: text
+              display: Name
+          -
+            handle: legal_name
+            field:
+              type: text
+              display: 'Legal Name'
+          -
+            handle: url
+            field:
+              type: link
+              display: URL
+          -
+            handle: description
+            field:
+              type: textarea
+              display: Description
+          -
+            handle: founding_date
+            field:
+              type: text
+              display: 'Founding Date'
+          -
+            handle: logo
+            field:
+              container: images
+              type: assets
+              display: Logo
+          -
+            handle: street_address
+            field:
+              type: text
+              display: 'Street Address'
+          -
+            handle: address_locality
+            field:
+              type: text
+              display: 'Address Locality'
+          -
+            handle: postal_code
+            field:
+              type: text
+              display: 'Postal Code'
+          -
+            handle: contact_type
+            field:
+              type: text
+              display: 'Contact Type'
+          -
+            handle: telephone
+            field:
+              type: text
+              display: Telephone
+          -
+            handle: email
+            field:
+              type: text
+              display: Email
+          -
+            handle: same_as
+            field:
+              type: array
+              display: 'Same As'

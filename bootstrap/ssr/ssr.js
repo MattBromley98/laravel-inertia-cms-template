@@ -115,7 +115,7 @@ function ensure_array_like(array_like_or_iterator) {
 }
 let component;
 const loadComponent = async () => {
-  component = await /* @__PURE__ */ Object.assign({ "./Blocks/Headline/Component.svelte": () => import("./assets/Component-BdJwmZo9.js") })["./Blocks/Headline/Component.svelte"]();
+  component = await /* @__PURE__ */ Object.assign({ "./Blocks/Headline/Component.svelte": () => import("./assets/Component-C51N5zZs.js") })["./Blocks/Headline/Component.svelte"]();
 };
 loadComponent();
 function PageBuilder($$payload, $$props) {
@@ -125,7 +125,7 @@ function PageBuilder($$payload, $$props) {
     if (component == null ? void 0 : component.default) {
       return;
     }
-    component = await /* @__PURE__ */ Object.assign({ "./Blocks/Headline/Component.svelte": () => import("./assets/Component-BdJwmZo9.js") })["./Blocks/Headline/Component.svelte"]();
+    component = await /* @__PURE__ */ Object.assign({ "./Blocks/Headline/Component.svelte": () => import("./assets/Component-C51N5zZs.js") })["./Blocks/Headline/Component.svelte"]();
   };
   loadComponent2();
   if (typeof window === "undefined") {
@@ -143,7 +143,7 @@ function PageBuilder($$payload, $$props) {
     $$payload.out += "<!--[!-->";
     $$payload.out += `<!---->`;
     await_block(
-      import("./assets/Component-BdJwmZo9.js"),
+      import("./assets/Component-C51N5zZs.js"),
       () => {
       },
       (component2) => {

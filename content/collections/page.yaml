@@ -2,6 +2,7 @@ title: Page
 template: default
 layout: layout
 revisions: false
+route: '/{slug}'
 sort_dir: asc
 date_behavior:
   past: public

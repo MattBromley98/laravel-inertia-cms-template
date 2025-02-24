@@ -1483,16 +1483,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.43.2",
+            "version": "v11.44.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "99d1573698abc42222f04d25fcd5b213d0eedf21"
+                "reference": "e9a33da34815ac1ed46c7e4c477a775f4592f0a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/99d1573698abc42222f04d25fcd5b213d0eedf21",
-                "reference": "99d1573698abc42222f04d25fcd5b213d0eedf21",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/e9a33da34815ac1ed46c7e4c477a775f4592f0a7",
+                "reference": "e9a33da34815ac1ed46c7e4c477a775f4592f0a7",
                 "shasum": ""
             },
             "require": {
@@ -1694,7 +1694,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-02-19T21:53:48+00:00"
+            "time": "2025-02-24T13:08:54+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -2665,16 +2665,16 @@
         },
         {
             "name": "mattbromley/inertia-statamic",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MattBromley98/inertia-statamic.git",
-                "reference": "a8e4ffc8a9c487c6fcac57391c4daa0ccc38d06f"
+                "reference": "ee6092066b5d1278110194c8adcd38cccff5e284"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MattBromley98/inertia-statamic/zipball/a8e4ffc8a9c487c6fcac57391c4daa0ccc38d06f",
-                "reference": "a8e4ffc8a9c487c6fcac57391c4daa0ccc38d06f",
+                "url": "https://api.github.com/repos/MattBromley98/inertia-statamic/zipball/ee6092066b5d1278110194c8adcd38cccff5e284",
+                "reference": "ee6092066b5d1278110194c8adcd38cccff5e284",
                 "shasum": ""
             },
             "require": {
@@ -2724,9 +2724,9 @@
                 "statamic"
             ],
             "support": {
-                "source": "https://github.com/MattBromley98/inertia-statamic/tree/v1.1.0"
+                "source": "https://github.com/MattBromley98/inertia-statamic/tree/v1.1.1"
             },
-            "time": "2025-02-23T21:53:40+00:00"
+            "time": "2025-02-24T17:08:27+00:00"
         },
         {
             "name": "michelf/php-smartypants",

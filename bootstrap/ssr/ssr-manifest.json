@@ -7,7 +7,9 @@
   "node_modules/svelte/src/internal/server/hydration.js": [],
   "node_modules/svelte/src/internal/server/index.js": [],
   "node_modules/svelte/src/internal/shared/utils.js": [],
-  "resources/components/Blocks/Headline/Component.svelte": [],
+  "resources/components/Blocks/Headline/Component.svelte": [
+    "/build/assets/Component-BdJwmZo9.js"
+  ],
   "resources/components/PageBuilder.svelte": [],
   "resources/js/Pages/Index.svelte": [],
   "resources/js/ssr.js": []

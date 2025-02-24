@@ -16,16 +16,20 @@ export default defineConfig({
             },
         }),
     ],
-    // build: {
-    //     rollupOptions: {
-    //         output: {
-    //             format: 'cjs',
-    //         }
-    //     }
-    // },
-    esbuild: {
-        supported: {
-            'top-level-await': true
+    build: {
+        rollupOptions: {
+            output: {
+                // manualChunks(id, meta) {
+                //     // console.log(process)
+                //     // console.log(meta);
+                //     // console.log(id);
+                //     if(id.includes('components/Blocks/Headline')) {
+                //         return 'chjhj';
+                //     }
+                //     return 'index';
+                //     // console.log(id);
+                // }
+            }
         }
     }
 });

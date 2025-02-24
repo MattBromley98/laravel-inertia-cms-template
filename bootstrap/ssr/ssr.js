@@ -6,6 +6,11 @@ import "lodash/cloneDeep.js";
 import "lodash/isEqual.js";
 const HYDRATION_START = "[";
 const HYDRATION_END = "]";
+const noop = () => {
+};
+function is_promise(value) {
+  return typeof (value == null ? void 0 : value.then) === "function";
+}
 function fallback(value, fallback2, lazy = false) {
   return value === void 0 ? lazy ? (
     /** @type {() => V} */
@@ -20,15 +25,15 @@ function push(fn) {
   current_component = { p: current_component, c: null, d: null };
 }
 function pop() {
-  var component = (
+  var component2 = (
     /** @type {Component} */
     current_component
   );
-  var ondestroy = component.d;
+  var ondestroy = component2.d;
   if (ondestroy) {
     on_destroy.push(...ondestroy);
   }
-  current_component = component.p;
+  current_component = component2.p;
 }
 const BLOCK_OPEN = `<!--${HYDRATION_START}-->`;
 const BLOCK_CLOSE = `<!--${HYDRATION_END}-->`;
@@ -37,7 +42,7 @@ function props_id_generator() {
   let uid = 1;
   return () => "s" + uid++;
 }
-function render(component, options = {}) {
+function render(component2, options = {}) {
   const uid = props_id_generator();
   const payload = {
     out: "",
@@ -52,7 +57,7 @@ function render(component, options = {}) {
     push();
     current_component.c = options.context;
   }
-  component(payload, options.props ?? {}, {}, {});
+  component2(payload, options.props ?? {}, {}, {});
   if (options.context) {
     pop();
   }
@@ -95,35 +100,62 @@ function bind_props(props_parent, props_now) {
     }
   }
 }
+function await_block(promise, pending_fn, then_fn) {
+  if (is_promise(promise)) {
+    promise.then(null, noop);
+  } else if (then_fn !== null) {
+    then_fn(promise);
+  }
+}
 function ensure_array_like(array_like_or_iterator) {
   if (array_like_or_iterator) {
     return array_like_or_iterator.length !== void 0 ? array_like_or_iterator : Array.from(array_like_or_iterator);
   }
   return [];
 }
-function Component($$payload) {
-  console.log("INIT");
-  let innerWidth;
-  console.log(innerWidth);
-  $$payload.out += `<div class="w-full">sdsdd</div>`;
-}
-const __vite_glob_0_0$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: Component
-}, Symbol.toStringTag, { value: "Module" }));
+let component;
+const loadComponent = async () => {
+  component = await /* @__PURE__ */ Object.assign({ "./Blocks/Headline/Component.svelte": () => import("./assets/Component-BdJwmZo9.js") })["./Blocks/Headline/Component.svelte"]();
+};
+loadComponent();
 function PageBuilder($$payload, $$props) {
-  var _a, _b;
+  var _a;
   push();
-  let data = fallback($$props["data"], () => [], true);
-  let component;
-  switch ((_a = data[0]) == null ? void 0 : _a.type) {
-    case "headline":
-      component = Object.assign({ "./Blocks/Headline/Component.svelte": __vite_glob_0_0$1 })["./Blocks/Headline/Component.svelte"];
+  const loadComponent2 = async () => {
+    if (component == null ? void 0 : component.default) {
+      return;
+    }
+    component = await /* @__PURE__ */ Object.assign({ "./Blocks/Headline/Component.svelte": () => import("./assets/Component-BdJwmZo9.js") })["./Blocks/Headline/Component.svelte"]();
+  };
+  loadComponent2();
+  if (typeof window === "undefined") {
+    $$payload.out += "<!--[-->";
+    if (component == null ? void 0 : component.default) {
+      $$payload.out += "<!--[-->";
+      $$payload.out += `<!---->`;
+      (_a = component == null ? void 0 : component.default) == null ? void 0 : _a.call(component, $$payload, {});
+      $$payload.out += `<!---->`;
+    } else {
+      $$payload.out += "<!--[!-->";
+    }
+    $$payload.out += `<!--]-->`;
+  } else {
+    $$payload.out += "<!--[!-->";
+    $$payload.out += `<!---->`;
+    await_block(
+      import("./assets/Component-BdJwmZo9.js"),
+      () => {
+      },
+      (component2) => {
+        var _a2;
+        $$payload.out += `<!---->`;
+        (_a2 = component2 == null ? void 0 : component2.default) == null ? void 0 : _a2.call(component2, $$payload, {});
+        $$payload.out += `<!---->`;
+      }
+    );
+    $$payload.out += `<!---->`;
   }
-  $$payload.out += `<!---->`;
-  (_b = component == null ? void 0 : component.default) == null ? void 0 : _b.call(component, $$payload, {});
-  $$payload.out += `<!---->`;
-  bind_props($$props, { data });
+  $$payload.out += `<!--]-->`;
   pop();
 }
 function Index($$payload, $$props) {
@@ -137,10 +169,10 @@ const __vite_glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.def
   __proto__: null,
   default: Index
 }, Symbol.toStringTag, { value: "Module" }));
-const h = (component, propsOrChildren, childrenOrKey, key = null) => {
+const h = (component2, propsOrChildren, childrenOrKey, key = null) => {
   const hasProps = typeof propsOrChildren === "object" && propsOrChildren !== null && !Array.isArray(propsOrChildren);
   return {
-    component,
+    component: component2,
     key: hasProps ? key : typeof childrenOrKey === "number" ? childrenOrKey : null,
     props: hasProps ? propsOrChildren : {},
     children: hasProps ? Array.isArray(childrenOrKey) ? childrenOrKey : childrenOrKey !== null ? [childrenOrKey] : [] : Array.isArray(propsOrChildren) ? propsOrChildren : propsOrChildren !== null ? [propsOrChildren] : []
@@ -148,18 +180,18 @@ const h = (component, propsOrChildren, childrenOrKey, key = null) => {
 };
 function Render($$payload, $$props) {
   push();
-  let component = $$props["component"];
+  let component2 = $$props["component"];
   let props = fallback($$props["props"], () => ({}), true);
   let children = fallback($$props["children"], () => [], true);
   let key = fallback($$props["key"], null);
-  if (component) {
+  if (component2) {
     $$payload.out += "<!--[-->";
     $$payload.out += `<!---->`;
     {
       if (children.length > 0) {
         $$payload.out += "<!--[-->";
         $$payload.out += `<!---->`;
-        component == null ? void 0 : component($$payload, spread_props([
+        component2 == null ? void 0 : component2($$payload, spread_props([
           props,
           {
             children: ($$payload2) => {
@@ -179,7 +211,7 @@ function Render($$payload, $$props) {
       } else {
         $$payload.out += "<!--[!-->";
         $$payload.out += `<!---->`;
-        component == null ? void 0 : component($$payload, spread_props([props]));
+        component2 == null ? void 0 : component2($$payload, spread_props([props]));
         $$payload.out += `<!---->`;
       }
       $$payload.out += `<!--]-->`;
@@ -189,7 +221,7 @@ function Render($$payload, $$props) {
     $$payload.out += "<!--[!-->";
   }
   $$payload.out += `<!--]-->`;
-  bind_props($$props, { component, props, children, key });
+  bind_props($$props, { component: component2, props, children, key });
   pop();
 }
 function App($$payload, $$props) {
@@ -197,26 +229,26 @@ function App($$payload, $$props) {
   let initialComponent = $$props["initialComponent"];
   let initialPage = $$props["initialPage"];
   let resolveComponent = $$props["resolveComponent"];
-  let component = initialComponent;
+  let component2 = initialComponent;
   let key = null;
   let page = initialPage;
-  let renderProps = resolveRenderProps(component, page, key);
+  let renderProps = resolveRenderProps(component2, page, key);
   const isServer = typeof window === "undefined";
   if (!isServer) {
     router.init({
       initialPage,
       resolveComponent,
       swapComponent: async (args) => {
-        component = args.component;
+        component2 = args.component;
         page = args.page;
         key = args.preserveState ? key : Date.now();
-        renderProps = resolveRenderProps(component, page, key);
+        renderProps = resolveRenderProps(component2, page, key);
       }
     });
   }
-  function resolveRenderProps(component2, page2, key2 = null) {
-    const child = h(component2.default, page2.props, [], key2);
-    const layout = component2.layout;
+  function resolveRenderProps(component22, page2, key2 = null) {
+    const child = h(component22.default, page2.props, [], key2);
+    const layout = component22.layout;
     return layout ? resolveLayout(layout, child, page2.props, key2) : child;
   }
   function resolveLayout(layout, child, pageProps, key2) {

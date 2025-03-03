@@ -9,7 +9,7 @@
         "inertiajs/inertia-laravel": "^2.0",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
-        "mattbromley/inertia-statamic": "^v1.1.4",
+        "mattbromley/inertia-statamic": "^v1.2.0",
         "statamic/cms": "^5.48"
     },
     "require-dev": {
